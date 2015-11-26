@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @message = Message.new
-    @messages = Message.all
+    @messages = Message.all.order('updated_at DESC')
   end
 
   # GET /messages/1
