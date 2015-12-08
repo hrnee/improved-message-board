@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1>New Messages</h1>
+
+<%= render 'form' %>
+
+<h1>Listing Messages</h1>
+<% @messages.each do |message| %>
+    <hr>
+    <dl>
+      <dt>タイトル</dt><dd><%= message.title %></dd>
+      <dt>更新日時</dt><dd><%= message.updated_at %></dd>
+      <dt>本文</dt><dd><%= message.body %></dd>
+      <dt>投稿者</dt><dd><%= message.user.name %></dd>
+    </dl>
+    <% if @current_user.id == message.user.id %>
+        <%= link_to 'Edit', edit_message_path(message) %>
+        <%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%end%>
+<% end %>

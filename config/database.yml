@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: improved-message-board_production
-  username: improved-message-board
-  password: <%= ENV['IMPROVED-MESSAGE-BOARD_DATABASE_PASSWORD'] %>
+#  database: improved-message-board_production
+#  username: improved-message-board
+#  password: <%= ENV['IMPROVED-MESSAGE-BOARD_DATABASE_PASSWORD'] %>
+   url: <%= ENV['DATABASE_URL'] %>
